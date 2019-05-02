@@ -52,10 +52,10 @@ function display3(data){
 	let page = 1;
 
 	for (let i = 0; i < data.entr.length; i ++){
-		html = `   <td id = "${data.entr.id}">${data.entr.fecha}</td>
-                            <td>${data.entr.emp}</td>
-                            <td>${arreglo[data.entr.name]}</td>
-                            <td>${arreglo[data.entr.user]}</td>
+		html = `   <td id = "${data.entr[i].id}">${data.entr[i].fecha}</td>
+                            <td>${data.entr[i].emp}</td>
+                            <td>${data.entr[i].name}</td>
+                            <td>${data.entr[i].user}</td>
 						`;
 						
                 $("#EntradasRow" + page.toString()).html(html);
