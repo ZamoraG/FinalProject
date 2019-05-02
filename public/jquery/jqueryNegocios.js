@@ -26,14 +26,13 @@ function display2(data, EmpresaClick){
                     			   <td>${data.negocio[i].numemp}</td>`;
 			$("#negociosRow" + page.toString()).html(html);
                 	page = page + 1;
-			}
-			if(EmpresaClick == nombreEmp)
+           	if(EmpresaClick == data.negocio[i].negname)
 			    {
-			        $("#EmpresaNombre").val(nombreEmp);
-    			    $("#EmpresaNombre").data( "idneg", idEmp);
-                	$("#EmpresaDireccion").val(direccion);
-                	$("#EmpresaEmpleados").val(empleados);
-                	$("#nombreNegocio").html(nombreEmp);
+			        $("#EmpresaNombre").val(data.negocio[i].negname);
+    			    $("#EmpresaNombre").data( "idneg", data.negocio[i].idneg);
+                	$("#EmpresaDireccion").val(data.negocio[i].dir);
+                	$("#EmpresaEmpleados").val(data.negocio[i].numemp);
+                	$("#nombreNegocio").html(data.negocio[i].negname);
                 	
                 	nombreEmp = nombreEmp.replace(" ", "_");
                 	
@@ -42,6 +41,8 @@ function display2(data, EmpresaClick){
 
                     LoadEntradasNegocio(idEmp);
 			    }
+			}
+			
 }
 
 function display3(data){
