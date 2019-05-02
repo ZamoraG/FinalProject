@@ -18,7 +18,7 @@ $('#RegisterPrincipal').on('click', function(event){
 	else if(pswdR !== pswd){ error.text("Contraseñas Diferentes");errorFlag = true;}
 	else{error.text(""); }
 	
-	if(!errorFlag)
+	if(!errorFlag){
 	let data = {
 		usern : user,
 		pass : pswd,
@@ -58,6 +58,7 @@ $('#RegisterPrincipal').on('click', function(event){
 				console.log(err);
 				$("#errorReg").text(err.responseText);
 		});
+	}
 
 	    /*let jsonToSend ={
 						"username" : user,
