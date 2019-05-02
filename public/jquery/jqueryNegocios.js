@@ -40,7 +40,7 @@ function display2(data, EmpresaClick){
                 	$("#text").val("https://damp-coast-14503.herokuapp.com/home/Entrada.html?id="+ idEmp +"&Emp=" + nombreEmp);
                     makeCode ();
 
-                    LoadEntradasNegocio(idEmp);
+                    LoadEntradasNegocio(nombreEmp);
 			    }
 			}
 			
@@ -296,7 +296,7 @@ function makeCode () {
 	qrcode.makeCode(elText.value);
 }
 
-function LoadEntradasNegocio(idEmpresa){
+function LoadEntradasNegocio(emp){
 
 	let url = `../../limpieza/api/list-entrada/${emp}`;
 	let settings = {
