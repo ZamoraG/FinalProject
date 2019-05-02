@@ -10,7 +10,7 @@ function displayNeg(data){
 	let page = 1;
 
 	for (let i = 0; i < data.negocio.length; i ++){
-		html =	 `<td id = "${data.negocio[i].negname}">${nombre}</td>
+		html =	 `<td id = "${data.negocio[i].negname}">${data.negocio[i].negname}</td>
                     			   <td>${data.negocio[i].numemp}</td>`;
 		$("#negociosRow" + page.toString()).html(html);
                 page = page + 1;
@@ -22,7 +22,7 @@ function display2(data){
 			let page = 1;
 
 			for (let i = 0; i < data.negocio.length; i ++){
-			html =	 `<td id = "${data.negocio[i].negname}">${nombre}</td>
+			html =	 `<td id = "${data.negocio[i].negname}">${data.negocio[i].negname}</td>
                     			   <td>${data.negocio[i].numemp}</td>`;
 			$("#negociosRow" + page.toString()).html(html);
                 	page = page + 1;

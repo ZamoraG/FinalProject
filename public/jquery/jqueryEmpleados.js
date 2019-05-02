@@ -21,7 +21,7 @@ LoadCompanies();
 
 function LoadCompanies(){
 
-	let url = '../../limpieza/api/list-negocio/employees';
+	let url = '../../limpieza/api/list-users/employees';
 	let settings = {
 		method : 'GET',
 		headers : {
