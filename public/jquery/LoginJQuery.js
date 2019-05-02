@@ -26,7 +26,7 @@ $('#RegisterPrincipal').on('click', function(event){
 		admin : true
 	};
 
-	let url = './limpieza/api/post-user';
+	let url = '../../limpieza/api/post-user';
 	let settings = {
 						method : 'POST',
 						headers : {
@@ -118,7 +118,7 @@ $('#LoginPrincipal').on('click', function(event){
 						pass : psw
 					};
 
-		let url = `./limpieza/api/list-users/${user}/${psw}`;
+		let url = `../../limpieza/api/list-users/${user}/${psw}`;
 		let settings = {
 		method : 'GET',
 		headers : {

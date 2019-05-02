@@ -21,7 +21,7 @@ LoadCompanies();
 
 function LoadCompanies(){
 
-	let url = './limpieza/api/list-negocio/employees';
+	let url = '../../limpieza/api/list-negocio/employees';
 	let settings = {
 		method : 'GET',
 		headers : {
@@ -107,7 +107,7 @@ $('#RegisterEmpleado').on('click', function(event){
 		admin : false
 	};
 
-	let url = './limpieza/api/post-user';
+	let url = '../../limpieza/api/post-user';
 	let settings = {
 						method : 'POST',
 						headers : {

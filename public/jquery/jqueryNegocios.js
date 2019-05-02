@@ -45,7 +45,7 @@ function display2(data){
 LoadCompanies();
 
 function LoadCompanies(){
-    let url = './limpieza/api/list-negocio';
+    let url = '../../limpieza/api/list-negocio';
 	let settings = {
 		method : 'GET',
 		headers : {
@@ -113,7 +113,7 @@ $('#negociosContent > tr').on('click', function(event){
     $("#ListaEmpresas").addClass("hiddenElement");
     $("#EmpresaData").removeClass("hiddenElement");
     
-    let url = './limpieza/api/list-negocio';
+    let url = '../../limpieza/api/list-negocio';
 	let settings = {
 		method : 'GET',
 		headers : {
@@ -205,7 +205,7 @@ $('#RegisterNegocio').on('click', function(event){
 		numemp : num,
 	};
 
-	let url = './limpieza/api/post-negocio';
+	let url = '../../limpieza/api/post-negocio';
 	let settings = {
 						method : 'POST',
 						headers : {
@@ -280,7 +280,7 @@ $('#UpdateNegocio').on('click', function(event){
 	
 	if(!errorFlag)
 	{
-		let url = `./limpieza/api/update-negocio/${id}`;
+		let url = `../../limpieza/api/update-negocio/${id}`;
     let data = {
 		negname : name,
 		dirneg : dir,
@@ -358,7 +358,7 @@ $('#DeleteNegocio').on('click', function(event){
 			let data = {
 			id : id
 		};
-		let url = `./limpieza/api/delete-negocio/${id}`;
+		let url = `../../limpieza/api/delete-negocio/${id}`;
 		let settings = {
 							method : 'DELETE',
 							headers : {
