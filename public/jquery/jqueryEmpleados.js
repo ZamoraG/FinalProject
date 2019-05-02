@@ -9,9 +9,9 @@ function displayList(data){
 	let html = "";
 	let page = 1;
 
-	for (let i = 0; i < data.users.length; i ++){
-		html =	 `<td id = "${data.users[i].name}">${nombre}</td>
-                    			   <td>${data.users[i].id}</td>`;
+	for (let i = 0; i < data.user.length; i ++){
+		html =	 `<td id = "${data.user[i].name}">${data.user[i].name}</td>
+                    			   <td>${data.user[i].id}</td>`;
 		$("#empleadosRow" + page.toString()).html(html);
         page = page + 1;
 	}
