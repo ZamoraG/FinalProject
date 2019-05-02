@@ -440,3 +440,8 @@ li {
 .contact-info-area .single-contact-info p {
     margin-bottom: 0;
 }
+
+.imageHome{
+    height: 200px;
+    width: 500px;
+}

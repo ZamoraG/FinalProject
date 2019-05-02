@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {ListUsers} = require('./model');
 const {ListNego} = require('./model2');
+const {ListEnt} = require('./model3');
 
 
 router.get('/list-users', (req, res, next) => {
@@ -106,15 +107,50 @@ router.get('/list-users/:usern/:pass', (req, res) => {
 		});
 });
 
-router.delete('/remove-user/:usern', (req, res) => {
-	let negoId = req.params.idneg;
+router.put('/update-user/:id', (req, res) => {
+    let negocioId = req.params.id;
+    let updatedNeg = req.body;
+    
+    if(!negocioId){
+        res.status(406).json({
+            message: "Missing id field in params.",
+            status: 406
+        });
+    }
+
+    if(!updatedNeg.name && !updatedNeg.usern){
+        res.status(404).json({
+            message: "No data in body.",
+            status: 404
+        });
+    }
+    
+    ListUsers.put(negocioId, updatedNeg.name, updatedNeg.usern)
+        .then(user => {
+            res.status(200).json({
+                message : "Successfully updated the user.",
+                status : 200,
+               	user: user
+            });
+        })
+        .catch(err => {
+            res.status(404).json({
+                message : "User not found in the list.",
+                status : 404
+            });
+        });
+
+});
+
+router.delete('/remove-user/:id', (req, res) => {
+	let negoId = req.params.id;
    
-    ListNego.delete(negoId)
-		.then(negocio => {
+    ListUsers.delete(negoId)
+		.then(user => {
 			res.status(200).json({
 				message : "Successfully deleted the business.",
 				status : 200,
-				negocio: negocio
+				user: user
 			});
 		})
 		.catch(err => {
@@ -260,6 +296,99 @@ router.put('/update-negocio/:idneg', (req, res) => {
             });
         });
 
+});
+
+router.get('/list-entrada', (req, res, next) => {
+
+	ListEnt.get()
+	.then( entr => {
+		res.status(200).json({
+			message : 'Successfully sending the list of Entrances',
+			status : 200,
+			entr: entr
+		});
+	}).catch( err => {
+		res.status(500).json({
+			message : `Internal server error.`,
+			status : 500
+		});
+		return next();
+
+	});
+});
+
+router.get('/list-entrada/:emp', (req, res, next) => {
+	let entId = req.params.emp;
+	ListUsers.getByEmp(entId);
+	.then( user => {
+		res.status(200).json({
+			message : 'Successfully sending the list of Entrances',
+			status : 200,
+			user : user
+		});
+	}).catch( err => {
+		res.status(500).json({
+			message : `Internal server error.`,
+			status : 500
+		});
+		return next();
+
+	});
+});
+
+router.post('/post-entrada', (req, res, next) => {
+	
+	let requiredFields = ['user', 'name', 'emp'];
+
+	for ( let i = 0; i < requiredFields.length; i ++){
+		let currentField = requiredFields[i];
+
+		if (! (currentField in req.body)){
+			res.status(406).json({
+				message : `Missing field ${currentField} in body.`,
+				status : 406
+			});
+			return next();
+		}
+	}
+
+	var val = Math.floor(1000 + Math.random() * 9000);
+	console.log(val);
+
+	var d = new Date();
+
+	var month = d.getMonth()+1;
+	var day = d.getDate();
+
+	var output = d.getFullYear() + '/' +
+    ((''+month).length<2 ? '0' : '') + month + '/' +
+    ((''+day).length<2 ? '0' : '') + day;
+
+
+
+	let objectToAdd = {
+		id: val,
+		user: req.body.user,
+		name: req.body.name,
+		emp: req.body.emp,
+		fecha: output
+	};
+
+	console.log(objectToAdd);
+	ListUsers.post(objectToAdd)
+		.then(sport => {
+			res.status(201).json({
+				message : "Successfully added the user",
+				status : 201,
+			});
+		})
+		.catch( err => {
+			res.status(400).json({
+				message : `${err}`,
+				status : 400
+			});
+			return next();
+		});
 });
 
 

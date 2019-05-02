@@ -58,9 +58,6 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="RegistroEmp.html">Registrar Empleado</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="Negocios.html">Contact</a>
-                                </li>
                             </ul>
                         </div>
                     </nav>
@@ -70,7 +67,7 @@
     </header>
     <!-- ****** Header Area End ****** -->
 
-    <section>
+    <section id="listaAmigos">
       <!--for demo wrap-->
       <h1>Empleados</h1>
       <div class="tbl-header">
@@ -78,7 +75,7 @@
           <thead>
             <tr>
               <th>Empleado</th>
-              <th>ID</th>
+              <th>Usuario</th>
             </tr>
           </thead>
         </table>
@@ -99,6 +96,24 @@
           </tbody>
         </table>
       </div>
+    </section>
+    
+    <section id="informacionEmpleado" class="hiddenElement">
+        <div id="newContainer">
+            <form  method="post">
+                
+                <input type="text" id="nombreReg" placeholder="Nombre del Empleado">
+                <input type="text" id="usuarioReg" placeholder="Usuario del Empleado">
+                <input type="password" id="passReg" placeholder="Contrase;a">
+                <input type="password" id="passConfReg" placeholder="Repetir Contrase;a">
+    
+                <button id="UpdateEmpleado">Actualizar Informacion</button>
+                <button id="DeleteEmpleado">Borrar Empleado</button>
+                        
+                <span class="errorMessage" id="errorRegEmp"></span>
+            
+            </form>
+        </div>
     </section>
 
     <!-- ****** Footer Menu Area Start ****** -->

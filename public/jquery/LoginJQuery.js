@@ -59,32 +59,6 @@ $('#RegisterPrincipal').on('click', function(event){
 				$("#errorReg").text(err.responseText);
 		});
 	}
-
-	    /*let jsonToSend ={
-						"username" : user,
-						"password" : pswd,
-						"name" : name,
-						"action"   : "REGISTER"
-					};
-					
-		console.log (jsonToSend);
-        
-		$.ajax({
-			url : "./data/applicationLayer.php",
-			type : "POST",
-			data : jsonToSend,
-			ContentType : "application/json",
-			dataType : "json",
-			success : function(data){
-				console.log(data);
-				$("#errorReg").text("EXITO CREANDO USUARIO");
-			},
-			error : function(error){
-				console.log("ERROR");
-				console.log(error);
-				$("#errorReg").text(error.responseText);
-			}
-		});*/
 	});
 
 
@@ -142,30 +116,6 @@ $('#LoginPrincipal').on('click', function(event){
 				$("#errorLog").text("LOGIN FALLIDO");
 				$("#errorLog").text(err.responseText);
 		});
-
-	    /*let jsonToSend ={
-						"username" : user,
-						"password" : psw,
-						"remember" : checked,
-						"action"   : "LOGIN"
-					};
-
-		$.ajax({
-			url : "./data/applicationLayer.php",
-			type : "GET",
-			data : jsonToSend,
-			ContentType : "application/json",
-			dataType : "json",
-			success : function(data){
-				console.log(data);
-				
-			},
-			error : function(error){
-				console.log(error);
-				$("#errorLog").text("LOGIN FALLIDO");
-				$("#errorLog").text(error.responseText);
-			}
-		});*/
 	}
 	else
 	{

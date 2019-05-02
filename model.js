@@ -56,13 +56,10 @@ const ListUsers = {
 				throw new Error(err);
 			});
 		},
-	put : function(userId, newData){
-		return Users.findOneAndUpdate({id : userId}, { $set: newData }, { new: true })
+	put : function(userId, name, user){
+		return Users.findOneAndUpdate({id : userId}, { $set: {name: name, usern: user}})
 			.then(user => {
-				if (user){
 					return user;
-				}
-				throw new Err("User not found");
 			})
 			.catch(err =>{
 				throw new Error(err);

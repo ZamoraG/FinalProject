@@ -6,71 +6,74 @@ $(window).on("load resize ", function() {
 
 LoadCompanies();
 
-function LoadCompanies(){
-    
-    let jsonToSend ={   "action"    : "GETREGISTRATIONDATA"
-	};
 
-	$.ajax({
-		url : "../data/applicationLayer.php",
-		type : "GET",
-		data : jsonToSend,
-		ContentType : "application/json",
-		dataType : "json",
-		success : function(data){
-			console.log(data);
-            
-            jQuery.each( data, function( id, empresa ) {
-                $("#EmpresaEntrada").html(empresa);
-            });
+function LoadCompanies()
+	{
+		var parameters = location.search.substring(1).split("&");
 
-		},
-		error : function(error){
-			console.log("ERROR");
-			console.log(error);
-			$("#errorRegEnt").text("ERROR");
-		}
-	});
-}
+		var temp = parameters[0].split("=");
+		l = unescape(temp[1]);
+
+		temp = parameters[1].split("=");
+		c = unescape(temp[1]);
+
+		$("#EmpresaEntrada").html(c);
+	}
+addComment();
+
+
 
 $('#RegisterEmpleado').on('click', function(event){
 	event.preventDefault(); //evita que se haga el action y onSubmit
 	
 	let user = $("#usuarioReg").val();
-	let pswd = $("#passReg").val();
+	let name = $("#nameReg").val();
+	let name = $("#empReg").val();
 	let error = $("#errorRegEnt");
 	
 	let errorFlag = false;
 	
 	if(user === ""){ error.text("Falta Usuario");errorFlag = true;}
-	else if(pswd === ""){ error.text("Contraseña");errorFlag = true;}
+	else if(name === ""){ error.text("falta Nombre del usuario");errorFlag = true;}
+	else if(emp === ""){ error.text("falta Nombre de la empresa");errorFlag = true;}
 	else{error.text(""); }
 	
 	if(!errorFlag)
 	{
-	    let jsonToSend ={
-						"username" : user,
-						"password" : pswd,
-						"action"   : "REGISTERENTRY"
+
+		let data = {
+		user: user,
+		name: name
+	};
+
+	let url = '../../limpieza/api/post-entrada';
+	let settings = {
+						method : 'POST',
+						headers : {
+							'Content-Type' : 'application/json'
+						},
+						body : JSON.stringify(data)
 					};
-					
-		console.log (jsonToSend);
-        
-		$.ajax({
-			url : "../data/applicationLayer.php",
-			type : "POST",
-			data : jsonToSend,
-			ContentType : "application/json",
-			dataType : "json",
-			success : function(data){
-				console.log(data);
-				alert("EXITO REGISTRANDO ENTRADA");
-			},
-			error : function(error){
-				console.log("ERROR");
-				console.log(error);
-				$("#errorRegEnt").text(error.responseText);
+
+	fetch(url, settings)
+		.then(response => {
+			if (response.ok){
+				return response.json();
 			}
+			else{
+				return new Promise(function(resolve, reject){
+					resolve(response.json());
+				})
+				.then(data =>{
+					throw new Error(data.message);
+				})
+			}
+		})
+		.then(responseJSON => {
+			alert("EXITO REGISTRANDO ENTRADA");
+		})
+		.catch(err => {
+			console.log(err);
 		});
 	}
 })

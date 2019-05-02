@@ -37,9 +37,28 @@ function display2(data){
                 	
                 	nombreEmp = nombreEmp.replace(" ", "_");
                 	
-                	$("#text").val("medicalendar.net/Limpieza/data/Mirror.php?local=" + idEmp + "&Emp=" + nombreEmp);
+                	$("#text").val("https://damp-coast-14503.herokuapp.com/home/Entrada?id="+ idEmp +"&Emp=" + nombreEmp);
                     makeCode ();
+
+                    LoadEntradasNegocio(idEmp);
 			    }
+}
+
+function display3(data){
+
+	let html = "";
+	let page = 1;
+
+	for (let i = 0; i < data.entr.length; i ++){
+		html = `   <td id = "${data.entr.id}">${data.entr.fecha}</td>
+                            <td>${data.entr.emp}</td>
+                            <td>${arreglo[data.entr.name]}</td>
+                            <td>${arreglo[data.entr.user]}</td>
+						`;
+						
+                $("#EntradasRow" + page.toString()).html(html);
+                page = page + 1;
+		}
 }
 
 LoadCompanies();
@@ -66,42 +85,6 @@ function LoadCompanies(){
 		.catch(err => {
 			console.log(err);
 		});
-    /*let jsonToSend ={   "pagina"    : "1",
-					    "action"    : "GETCOMPANIES"
-	};
-
-	$.ajax({
-		url : "../data/applicationLayer.php",
-		type : "GET",
-		data : jsonToSend,
-		ContentType : "application/json",
-		dataType : "json",
-		success : function(data){
-			console.log(data);
-			let html = "";
-			let page = 1;
-			
-			jQuery.each( data, function( nombre, empresa ) {
-			    let pos = empresa.indexOf("|");
-			    let empleados = empresa.substring(0, pos);
-			    pos = nombre.indexOf("|");
-			    let nombreEmp = nombre.substring(0, pos);
-			    
-			    html = `    <td id = "${nombreEmp}">${nombreEmp}</td>
-                            <td>${empleados}</td>
-						`;
-						
-                $("#negociosRow" + page.toString()).html(html);
-                page = page + 1;
-            });
-		},
-		error : function(error){
-			console.log("ERROR");
-			console.log(error);
-			$("#errorPHP").text(error.responseText);
-			$("#exitoPHP").text("");
-		}
-	});*/
 }
 
 $('#negociosContent > tr').on('click', function(event){
@@ -135,51 +118,7 @@ $('#negociosContent > tr').on('click', function(event){
 			console.log(err);
 		});
     
-    /*let jsonToSend ={   "pagina"    : "1",
-					    "action"    : "GETCOMPANIES"
-	};
-
-	$.ajax({
-		url : "../data/applicationLayer.php",
-		type : "GET",
-		data : jsonToSend,
-		ContentType : "application/json",
-		dataType : "json",
-		success : function(data){
-			console.log(data);
-			let html = "";
-			let page = 1;
-			
-			jQuery.each( data, function( nombre, empresa ) {
-			    let pos = empresa.indexOf("|");
-			    let empleados = empresa.substring(0, pos);
-			    let direccion = empresa.substring(pos + 1);
-			    pos = nombre.indexOf("|");
-			    let nombreEmp = nombre.substring(0, pos);
-			    let idEmp = nombre.substring(pos + 1);
-			    
-			    if(EmpresaClick == nombreEmp)
-			    {
-			        $("#EmpresaNombre").val(nombreEmp);
-    			    $("#EmpresaNombre").data( "id", idEmp);
-                	$("#EmpresaDireccion").val(direccion);
-                	$("#EmpresaEmpleados").val(empleados);
-                	$("#nombreNegocio").html(nombreEmp);
-                	
-                	nombreEmp = nombreEmp.replace(" ", "_");
-                	
-                	$("#text").val("medicalendar.net/Limpieza/data/Mirror.php?local=" + idEmp + "&Emp=" + nombreEmp);
-                    makeCode ();
-			    }
-            });
-		},
-		error : function(error){
-			console.log("ERROR");
-			console.log(error);
-			$("#errorPHP").text(error.responseText);
-			$("#exitoPHP").text("");
-		}
-	});*/ 
+    
 });
 
 $('#RegisterNegocio').on('click', function(event){
@@ -234,30 +173,6 @@ $('#RegisterNegocio').on('click', function(event){
 		.catch(err => {
 			console.log(err);
 		});
-	    /*let jsonToSend ={
-						"name" : name,
-						"address" : dir,
-						"employees" : num,
-						"action"   : "REGISTEREMPRESA"
-					};
-        
-		$.ajax({
-			url : "../data/applicationLayer.php",
-			type : "POST",
-			data : jsonToSend,
-			ContentType : "application/json",
-			dataType : "json",
-			success : function(data){
-				console.log(data);
-				$("#error").text("EXITO REGISTRANDO EMPRESA");
-				alert("Exito Registrando " + name);
-			},
-			error : function(error){
-				console.log("ERROR");
-				console.log(error);
-				$("#error").text(error.responseText);
-			}
-		});*/
 	}
 });
 
@@ -315,30 +230,6 @@ $('#UpdateNegocio').on('click', function(event){
             alert(err.message);
 			console.log(err);
 		});
-	    /*let jsonToSend ={
-	                    "id" : id,
-						"name" : name,
-						"address" : dir,
-						"employees" : num,
-						"action"   : "UPDATEEMPRESA"
-					};
-        
-		$.ajax({
-			url : "../data/applicationLayer.php",
-			type : "PUT",
-			data : jsonToSend,
-			ContentType : "application/json",
-			dataType : "json",
-			success : function(data){
-				console.log(data);
-				alert("Exito Actualizando " + name);
-			},
-			error : function(error){
-				console.log("ERROR");
-				console.log(error);
-				$("#error").text(error.responseText);
-			}
-		});*/
 	}
 });
 
@@ -356,7 +247,7 @@ $('#DeleteNegocio').on('click', function(event){
 		if(!errorFlag)
 		{
 			let data = {
-			id : id
+			idneg : id
 		};
 		let url = `../../limpieza/api/delete-negocio/${id}`;
 		let settings = {
@@ -387,27 +278,6 @@ $('#DeleteNegocio').on('click', function(event){
 			.catch(err => {
 				console.log(err);
 			});
-	    /*let jsonToSend ={
-	                    "id" : id,
-						"action"   : "DELETEEMPRESA"
-					};
-        
-		$.ajax({
-			url : "../data/applicationLayer.php",
-			type : "PUT",
-			data : jsonToSend,
-			ContentType : "application/json",
-			dataType : "json",
-			success : function(data){
-				console.log(data);
-				window.location.href = "./index.html";
-			},
-			error : function(error){
-				console.log("ERROR");
-				console.log(error);
-				$("#error").text(error.responseText);
-			}
-		});*/
 	}
 });
 
@@ -424,41 +294,27 @@ function makeCode () {
 	qrcode.makeCode(elText.value);
 }
 
-/*function LoadEntradasNegocio($Empresa){
-    let jsonToSend ={   "idPag"     : $Empresa,
-                        "pagina"    : "1",
-					    "action"    : "GETENTREESEMPRESA"
+function LoadEntradasNegocio(idEmpresa){
+
+	let url = `../../limpieza/api/list-entrada/${idEmpresa}`;
+	let settings = {
+		method : 'GET',
+		headers : {
+			'Content-Type' : 'application/json'
+		}
 	};
 
-    console.log(jsonToSend);
-    
-	$.ajax({
-		url : "../data/applicationLayer.php",
-		type : "GET",
-		data : jsonToSend,
-		ContentType : "application/json",
-		dataType : "json",
-		success : function(data){
-			console.log(data);
-			let html = "";
-			let page = 1;
-			
-			jQuery.each( data, function( indice, arreglo ) {
-			    html = `   <td id = "${arreglo["ID"]}">${arreglo["Fecha"]}</td>
-                            <td>${arreglo["Empresa"]}</td>
-                            <td>${arreglo["Nombre"]}</td>
-                            <td>${arreglo["User"]}</td>
-						`;
-						
-                $("#EntradasRow" + page.toString()).html(html);
-                page = page + 1;
-            });
-		},
-		error : function(error){
-			console.log("ERROR");
-			console.log(error);
-			$("#errorPHP").text(error.responseText);
-			$("#exitoPHP").text("");
-		}
-	});
-}*/
+	fetch(url, settings)
+		.then(response => {
+			if (response.ok){
+				return response.json();
+			}
+			throw new Error(response.statusText);
+		})
+		.then(responseJSON => {
+			display3(responseJSON);
+		})
+		.catch(err => {
+			console.log(err);
+		});
+}

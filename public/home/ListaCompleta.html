@@ -16,7 +16,7 @@
 
     <!-- Responsive CSS -->
     <link href="../css/responsive/responsive.css" rel="stylesheet">
-
+    
     <!-- Responsive CSS -->
     <link href="../css/Negocios.css" rel="stylesheet">
 
@@ -39,9 +39,7 @@
             <div class="row">
                 <div class="col-12">
                     <nav class="navbar navbar-expand-lg">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#yummyfood-nav"
-                            aria-controls="yummyfood-nav" aria-expanded="false" aria-label="Toggle navigation"><i
-                                class="fa fa-bars" aria-hidden="true"></i> Menu</button>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#yummyfood-nav" aria-controls="yummyfood-nav" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars" aria-hidden="true"></i> Menu</button>
                         <!-- Menu Area Start -->
                         <div class="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
                             <ul class="navbar-nav" id="yummy-nav">
@@ -51,11 +49,11 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="Negocios.html">Negocios </a>
                                 </li >
-                                <li class="nav-item">
-                                    <a class="nav-link" href="Empleados.html">Empleados </a>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="Empleados.html">Empleados <span class="sr-only">(current)</span></a>
                                 </li>
-                                <li class="nav-item active" >
-                                    <a class="nav-link" href="RegistroNeg.html">Registrar Negocio <span class="sr-only">(current)</span></a>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="RegistroNeg.html">Registrar Negocio</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="RegistroEmp.html">Registrar Empleado</a>
@@ -69,23 +67,50 @@
     </header>
     <!-- ****** Header Area End ****** -->
 
-    <main id="mainRegister">
-        <!--for demo wrap-->
-        <h1>Registro de Negocios</h1>
+    <section>
+      <!--for demo wrap-->
+      <h1>Empleados</h1>
+      <div class="tbl-header">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Empresa</th>
+              <th>Empleado</th>
+              <th>Usuario</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="tbl-content">
+        <table cellpadding="0" cellspacing="0" border="0" id="tableNegocios">
+          <tbody id="empleadosContent">
+            <tr id="EntradasRow1"></tr>
+            <tr id="EntradasRow2"></tr>
+            <tr id="EntradasRow3"></tr>
+            <tr id="EntradasRow4"></tr>
+            <tr id="EntradasRow5"></tr>
+            <tr id="EntradasRow6"></tr>
+            <tr id="EntradasRow7"></tr>
+            <tr id="EntradasRow8"></tr>
+            <tr id="EntradasRow9"></tr>
+            <tr id="EntradasRow10"></tr>
+            <tr id="EntradasRow11"></tr>
+            <tr id="EntradasRow12"></tr>
+            <tr id="EntradasRow13"></tr>
+            <tr id="EntradasRow14"></tr>
+            <tr id="EntradasRow15"></tr>
+            <tr id="EntradasRow16"></tr>
+            <tr id="EntradasRow17"></tr>
+            <tr id="EntradasRow18"></tr>
+            <tr id="EntradasRow19"></tr>
+            <tr id="EntradasRow20"></tr>
+            <tr id="EntradasRow21"></tr>
 
-        <div id="newContainer">
-        <form action="registerNeg" method="post">
-            <input type="text" id="EmpresaNombre" placeholder="Nombre de la Empresa">
-            <input type="text" id="EmpresaDireccion" placeholder="Direccion de la Empresa">
-            <input type="number" min="1" max="50" id="EmpresaEmpleados" placeholder="Numero de Empleados">
-
-            <button id="RegisterNegocio">Registrar</button>
-                    
-            <span class="errorMessage" id="errorRegEmp"></span>
-        
-        </form>
-        </div>
-    </main>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
     <!-- ****** Footer Menu Area Start ****** -->
     <footer class="footer_area">
@@ -94,17 +119,16 @@
     </footer>
 
     <!-- ****** Footer Menu Area End ****** -->
-    
+
     <!-- Jquery-2.2.4 js -->
     <script src="../jquery/jquery/jquery-2.2.4.min.js"></script>
-
+    
     <!-- Negocios -->
-    <script src="../jquery/jqueryNegocios.js"></script>
-
+    <script src="../jquery/jqueryEntradas.js"></script>
+    
     <!-- All Plugins JS -->
     <script src="../jquery/others/plugins.js"></script>
     <!-- Active JS -->
     <script src="../jquery/active.js"></script>
 </body>
-
 </html>
