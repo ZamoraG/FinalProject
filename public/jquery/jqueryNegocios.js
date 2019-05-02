@@ -298,7 +298,7 @@ function makeCode () {
 
 function LoadEntradasNegocio(idEmpresa){
 
-	let url = `../../limpieza/api/list-entrada/${idEmpresa}`;
+	let url = `../../limpieza/api/list-entrada/${emp}`;
 	let settings = {
 		method : 'GET',
 		headers : {

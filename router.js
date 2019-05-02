@@ -319,12 +319,11 @@ router.get('/list-entrada', (req, res, next) => {
 
 router.get('/list-entrada/:emp', (req, res, next) => {
 	let entId = req.params.emp;
-	ListUsers.getByEmp(entId)
+	ListEnt.getByEmp(entId)
 	.then( entr => {
 		res.status(200).json({
 			message : 'Successfully sending the list of Entrances',
 			status : 200,
-			user : user
 		});
 	}).catch( err => {
 		res.status(500).json({

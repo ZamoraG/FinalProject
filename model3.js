@@ -35,7 +35,7 @@ const ListEnt = {
 			});
 	},
 	getByEmp : function(entrId){
-		return Entradas.find({idemp : entrId})
+		return Entradas.find({emp : entrId})
 			.then(entr => {
 				if (entr){
 					return entr;
