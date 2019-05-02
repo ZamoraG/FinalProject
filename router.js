@@ -363,7 +363,6 @@ router.post('/post-entrada', (req, res, next) => {
 	var output = d.getFullYear() + '/' + ((''+month).length<2 ? '0' : '') + month + '/' + ((''+day).length<2 ? '0' : '') + day;
 
 
-
 	let objectToAdd = {
 		id: val,
 		user: req.body.user,
@@ -373,7 +372,7 @@ router.post('/post-entrada', (req, res, next) => {
 	};
 
 	console.log(objectToAdd);
-	ListUsers.post(objectToAdd)
+	ListEnt.post(objectToAdd)
 		.then(entr => {
 			res.status(201).json({
 				message : "Successfully added the user",
