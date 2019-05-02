@@ -175,7 +175,7 @@ $('#DeleteEmpleado').on('click', function(event){
 	    let data = {
 			id : id
 		};
-		let url = `../../limpieza/api/delete-user/${id}`;
+		let url = `../../limpieza/api/remove-user/${id}`;
 		let settings = {
 							method : 'DELETE',
 							headers : {

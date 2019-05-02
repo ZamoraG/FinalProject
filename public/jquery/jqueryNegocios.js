@@ -251,7 +251,7 @@ $('#DeleteNegocio').on('click', function(event){
 			let data = {
 			idneg : id
 		};
-		let url = `../../limpieza/api/delete-negocio/${id}`;
+		let url = `../../limpieza/api/remove-negocio/${id}`;
 		let settings = {
 							method : 'DELETE',
 							headers : {
