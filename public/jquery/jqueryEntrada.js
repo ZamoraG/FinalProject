@@ -27,7 +27,7 @@ $('#RegisterEmpleado').on('click', function(event){
 	
 	let user = $("#usuarioReg").val();
 	let name = $("#nameReg").val();
-	let name = $("#empReg").val();
+	let emp = $("#empReg").val();
 	let error = $("#errorRegEnt");
 	
 	let errorFlag = false;
@@ -42,7 +42,8 @@ $('#RegisterEmpleado').on('click', function(event){
 
 		let data = {
 		user: user,
-		name: name
+		name: name,
+		emp: emp
 	};
 
 	let url = '../../limpieza/api/post-entrada';

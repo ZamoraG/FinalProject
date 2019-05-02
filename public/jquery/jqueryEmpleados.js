@@ -23,6 +23,9 @@ function displayListemp(data, usuarioClick){
 	let page = 1;
 
 	for (let i = 0; i < data.user.length; i ++){
+		html =	 `<td id = "${data.user[i].name}">${data.user[i].usern}</td>`;
+			$("#negociosRow" + page.toString()).html(html);
+                	page = page + 1;
 		if(usuarioClick == data.user[i].usern)
 			    {
 			        $("#nombreReg").val(data.user[i].name);
