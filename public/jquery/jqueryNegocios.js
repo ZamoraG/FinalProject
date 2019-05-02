@@ -17,7 +17,7 @@ function displayNeg(data){
 	}
 }
 
-function display2(data){
+function display2(data, EmpresaClick){
 	let html = "";
 			let page = 1;
 
@@ -112,7 +112,7 @@ $('#negociosContent > tr').on('click', function(event){
 			throw new Error(response.statusText);
 		})
 		.then(responseJSON => {
-			display2(responseJSON);
+			display2(responseJSON, EmpresaClick);
 		})
 		.catch(err => {
 			console.log(err);
