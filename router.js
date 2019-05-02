@@ -324,6 +324,7 @@ router.get('/list-entrada/:emp', (req, res, next) => {
 		res.status(200).json({
 			message : 'Successfully sending the list of Entrances',
 			status : 200,
+			entr: entr
 		});
 	}).catch( err => {
 		res.status(500).json({
