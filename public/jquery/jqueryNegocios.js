@@ -37,7 +37,7 @@ function display2(data, EmpresaClick){
                 	var idEmp = data.negocio[i].idneg;
                 	nombreEmp = nombreEmp.replace(" ", "_");
                 	
-                	$("#text").val("https://damp-coast-14503.herokuapp.com/home/Entrada?id="+ idEmp +"&Emp=" + nombreEmp);
+                	$("#text").val("https://damp-coast-14503.herokuapp.com/home/Entrada.html?id="+ idEmp +"&Emp=" + nombreEmp);
                     makeCode ();
 
                     LoadEntradasNegocio(idEmp);
