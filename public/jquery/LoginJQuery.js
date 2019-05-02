@@ -85,7 +85,7 @@ $('#RegisterPrincipal').on('click', function(event){
 				$("#errorReg").text(error.responseText);
 			}
 		});*/
-	}
+	});
 
 
 $('#LoginPrincipal').on('click', function(event){
