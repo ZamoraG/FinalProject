@@ -319,8 +319,8 @@ router.get('/list-entrada', (req, res, next) => {
 
 router.get('/list-entrada/:emp', (req, res, next) => {
 	let entId = req.params.emp;
-	ListUsers.getByEmp(entId);
-	.then( user => {
+	ListUsers.getByEmp(entId)
+	.then( entr => {
 		res.status(200).json({
 			message : 'Successfully sending the list of Entrances',
 			status : 200,
@@ -360,9 +360,7 @@ router.post('/post-entrada', (req, res, next) => {
 	var month = d.getMonth()+1;
 	var day = d.getDate();
 
-	var output = d.getFullYear() + '/' +
-    ((''+month).length<2 ? '0' : '') + month + '/' +
-    ((''+day).length<2 ? '0' : '') + day;
+	var output = d.getFullYear() + '/' + ((''+month).length<2 ? '0' : '') + month + '/' + ((''+day).length<2 ? '0' : '') + day;
 
 
 
@@ -376,7 +374,7 @@ router.post('/post-entrada', (req, res, next) => {
 
 	console.log(objectToAdd);
 	ListUsers.post(objectToAdd)
-		.then(sport => {
+		.then(entr => {
 			res.status(201).json({
 				message : "Successfully added the user",
 				status : 201,

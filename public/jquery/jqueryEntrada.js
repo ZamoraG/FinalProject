@@ -12,12 +12,12 @@ function LoadCompanies()
 		var parameters = location.search.substring(1).split("&");
 
 		var temp = parameters[0].split("=");
-		//l = unescape(temp[1]);
+		l = unescape(temp[1]);
 
 		temp = parameters[1].split("=");
-		//c = unescape(temp[1]);
+		c = unescape(temp[1]);
 
-		//$("#EmpresaEntrada").html(c);
+		$("#EmpresaEntrada").html(c);
 	}
 addComment();
 
