@@ -54,7 +54,7 @@ const ListNego = {
             }); 
     },
 	delete : function(negocioId){
-		return Negocios.findOneAndRemove({idneg: negocioId})
+		return Negocios.deleteOne({idneg: negocioId})
 			.then(negocio => {
 				if (negocio){
 					return negocio;

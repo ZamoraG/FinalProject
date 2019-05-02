@@ -66,7 +66,7 @@ const ListUsers = {
 			});
 	},
 	delete : function(userId){
-		return Users.findOneAndRemove({id : userId})
+		return Users.deleteOne({id : userId})
 			.then(user => {
 				if (user){
 					return user;
