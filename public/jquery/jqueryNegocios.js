@@ -30,10 +30,10 @@ function display2(data, EmpresaClick){
 			    {
 			        $("#EmpresaNombre").val(data.negocio[i].negname);
     			    $("#EmpresaNombre").data( "idneg", data.negocio[i].idneg);
-                	$("#EmpresaDireccion").val(data.negocio[i].dir);
+                	$("#EmpresaDireccion").val(data.negocio[i].dirneg);
                 	$("#EmpresaEmpleados").val(data.negocio[i].numemp);
                 	$("#nombreNegocio").html(data.negocio[i].negname);
-                	
+                	var nombreEmp = data.negocio[i].negname;
                 	nombreEmp = nombreEmp.replace(" ", "_");
                 	
                 	$("#text").val("https://damp-coast-14503.herokuapp.com/home/Entrada?id="+ idEmp +"&Emp=" + nombreEmp);
