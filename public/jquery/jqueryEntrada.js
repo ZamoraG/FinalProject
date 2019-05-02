@@ -19,7 +19,6 @@ function LoadCompanies()
 
 		$("#EmpresaEntrada").html(c);
 	}
-addComment();
 
 
 
@@ -71,6 +70,7 @@ $('#RegisterEmpleado').on('click', function(event){
 		})
 		.then(responseJSON => {
 			alert("EXITO REGISTRANDO ENTRADA");
+			window.location.href = "./index.html";
 		})
 		.catch(err => {
 			console.log(err);
