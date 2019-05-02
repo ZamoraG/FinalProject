@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>
+          Clin Ex
+        </title>
+        <link href="./css/style.css" rel="stylesheet" type="text/css"/>
+        <meta chartset="utf- 8"/>
+    </head>
+    
+    <body class="content">
+        <main class="main">
+            
+            <div id="login-button">
+                <img src="https://dqcgrsy5v35b9.cloudfront.net/cruiseplanner/assets/img/icons/login-w-icon.png">
+            </div>
+            
+            <div id="container">
+                <h1>Log In</h1>
+                
+                <span class="close-btn">
+                    <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png">
+                </span>
+            
+                <form>
+                    <input type="text" id="usuarioLog" placeholder="Usuario">
+                    <input type="password" id="passLog" placeholder="Contraseña">
+                    <a id="LoginPrincipal">Log in</a>
+                    
+                    <span class="errorMessage" id="errorLog"></span>
+                    
+                    <div id="remember-container">
+                        <input type="checkbox" id="checkbox-2-1" name="Remember" class="checkbox" checked="checked"/>
+                        <span id="remember">Remember me</span>
+                        <span id="forgotten">Forgotten password</span>
+                    </div>
+                </form>
+            </div>
+            
+            <div id="register-button">
+                <img src="http://www.aula-salud.com/assets/masterslider/slides/comunes/cruztrans.png">
+            </div>
+            <div id="container2">
+                <h1>Register</h1>
+                
+                <span class="close-btn2">
+                    <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png">
+                </span>
+            
+                <form>
+                    <input type="text" id="nombreReg" placeholder="Nombre">
+                    <input type="text" id="usuarioReg" placeholder="Usuario">
+                    <input type="password" id="passReg" placeholder="Contraseña">
+                    <input type="password" id="passConfReg" placeholder="Repetir Contraseña">
+                    
+                    <a id="RegisterPrincipal">Register</a>
+                    
+                    <span class="errorMessage" id="errorReg"></span>
+                    
+                </form>
+            </div>
+            
+            <!-- Forgotten Password Container -->
+            <div id="forgotten-container">
+                <h1>Forgotten</h1>
+                
+                <span class="close-btn">
+                    <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png">
+                </span>
+            
+                <form>
+                    <input type="email" name="email" placeholder="E-mail">
+                    <a href="#" class="orange-btn">Get new password</a>
+                </form>
+            </div>
+        </main>
+    
+        <footer class="bottom">
+            <!--<footer>MediLimpieza</footer> -->
+        </footer>
+            
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+        <script type="text/javascript" src="./jquery/index.js"></script>
+        <script type="text/javascript" src="./jquery/LoginJQuery.js"></script>
+    </body>
+</html>

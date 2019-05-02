@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>Empresa</title>
+
+
+    <!-- Core Stylesheet -->
+    <link href="../css/homestyle.css" rel="stylesheet">
+
+    <!-- Responsive CSS -->
+    <link href="../css/responsive/responsive.css" rel="stylesheet">
+
+    <!-- Responsive CSS -->
+    <link href="../css/Negocios.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ****** Header Area Start ****** -->
+    <header class="header_area">
+        <div class="container">
+            <div class="row">
+                <!-- Logo Area Start -->
+                <div class="col-12">
+                    <div class="logo_area text-center">
+                        <a href="index.html" class="yummy-logo">Empresa</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#yummyfood-nav"
+                            aria-controls="yummyfood-nav" aria-expanded="false" aria-label="Toggle navigation"><i
+                                class="fa fa-bars" aria-hidden="true"></i> Menu</button>
+                        <!-- Menu Area Start -->
+                        <div class="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
+                            <ul class="navbar-nav" id="yummy-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Negocios.html">Negocios </a>
+                                </li >
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Empleados.html">Empleados </a>
+                                </li>
+                                <li class="nav-item" >
+                                    <a class="nav-link" href="RegistroNeg.html">Registrar Negocio </a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="RegistroEmp.html">Registrar Empleado <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Negocios.html">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ****** Header Area End ****** -->
+
+    <main id="mainRegister">
+        <!--for demo wrap-->
+        <h1>Registro de Empleado</h1>
+
+        <div id="newContainer">
+        <form  method="post">
+            
+            <input type="text" id="nombreReg" placeholder="Nombre del Empleado">
+            <input type="text" id="usuarioReg" placeholder="Usuario del Empleado">
+            <input type="password" id="passReg" placeholder="Contrase;a">
+            <input type="password" id="passConfReg" placeholder="Repetir Contrase;a">
+
+            <button id="RegisterEmpleado">Registrar</button>
+            <span class="errorMessage" id="errorReg"></span>
+                    
+            <span class="errorMessage" id="errorRegEmp"></span>
+        
+        </form>
+        </div>
+    </main>
+
+    <!-- ****** Footer Menu Area Start ****** -->
+    <footer class="footer_area">
+        <p> Gabriel Enrique Zamora Linares
+        </p>
+    </footer>
+
+    <!-- ****** Footer Menu Area End ****** -->
+    
+    <!-- Jquery-2.2.4 js -->
+    <script src="../jquery/jquery/jquery-2.2.4.min.js"></script>
+
+    <!-- Negocios -->
+    <script src="../jquery/jqueryNegocios.js"></script>
+    
+    <script src="../jquery/jqueryEmpleados.js"></script>
+
+    <!-- All Plugins JS -->
+    <script src="../jquery/others/plugins.js"></script>
+    <!-- Active JS -->
+    <script src="../jquery/active.js"></script>
+</body>
+
+</html>
